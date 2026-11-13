@@ -22,7 +22,7 @@ All timestamps were normalized to UTC using timeline analysis from Autopsy.
 * **2026-11-12 14:22:10** - User `Teddy` downloads `invoice_update.exe` via Chrome (MFT/USN Journal).
 * **2026-11-12 14:23:05** - Execution of `invoice_update.exe` (Prefetch: `INVOICE_UPDATE.EXE-1234ABCD.pf`).
 * **2026-11-12 14:23:15** - `cmd.exe /c whoami` spawned by `invoice_update.exe` (Volatility `cmdline` plugin).
-* **2026-11-12 14:24:00** - Registry modification: `NTUSER.DAT\Software\Microsoft\Windows\CurrentVersion\Run` modified to add `C:\Users\jdoe\AppData\Roaming\update.exe` (RegRipper).
+* **2026-11-12 14:24:00** - Registry modification: `NTUSER.DAT\Software\Microsoft\Windows\CurrentVersion\Run` modified to add `C:\Users\Teddy\AppData\Roaming\update.exe` (RegRipper).
 * **2026-11-12 14:25:30** - Outbound connection established to `185.15.x.x:4444` (Volatility `netscan` plugin).
 
 ---
