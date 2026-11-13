@@ -19,7 +19,7 @@ To ensure a forensically sound process, a working copy was made, and hashes were
 ## 2. Timeline of Events (UTC)
 All timestamps were normalized to UTC using timeline analysis from Autopsy.
 
-* **2026-11-12 14:22:10** - User `jdoe` downloads `invoice_update.exe` via Chrome (MFT/USN Journal).
+* **2026-11-12 14:22:10** - User `Teddy` downloads `invoice_update.exe` via Chrome (MFT/USN Journal).
 * **2026-11-12 14:23:05** - Execution of `invoice_update.exe` (Prefetch: `INVOICE_UPDATE.EXE-1234ABCD.pf`).
 * **2026-11-12 14:23:15** - `cmd.exe /c whoami` spawned by `invoice_update.exe` (Volatility `cmdline` plugin).
 * **2026-11-12 14:24:00** - Registry modification: `NTUSER.DAT\Software\Microsoft\Windows\CurrentVersion\Run` modified to add `C:\Users\jdoe\AppData\Roaming\update.exe` (RegRipper).
@@ -33,7 +33,7 @@ All timestamps were normalized to UTC using timeline analysis from Autopsy.
 The `vol3 -f memory.raw windows.cmdline` plugin revealed the following anomalous process tree:
 
     PID    Process        Args
-    4512   invoice_updat  "C:\Users\jdoe\Downloads\invoice_update.exe"
+    4512   invoice_updat  "C:\Users\Teddy\Downloads\invoice_update.exe"
     6120   cmd.exe        "cmd.exe /c whoami"
 
 *Significance:* This proves execution of the downloaded payload and basic discovery commands.
@@ -43,7 +43,7 @@ Using RegRipper on the extracted `NTUSER.DAT` hive:
 
     Key: Software\Microsoft\Windows\CurrentVersion\Run
     Value: WindowsUpdate
-    Data: C:\Users\jdoe\AppData\Roaming\update.exe
+    Data: C:\Users\Teddy\AppData\Roaming\update.exe
 
 *Significance:* Proves the malware established persistence to survive a reboot.
 
